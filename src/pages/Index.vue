@@ -75,16 +75,28 @@
             <form action="#" class="mb-12">
               <div class="flex flex-wrap mb-6 -mx-4">
                 <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
-                  <label class="block mb-2 text-copy-primary" for="name">
-                    Name
+                  <label class="block mb-2 text-copy-primary" for="firstname">
+                    First Name
                   </label>
-                  <input type="text" name="name" id="name" v-model="senderName" placeholder="Jon Snow" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                  <input type="text" name="firstname" id="firstname" v-model="sendeFirstName" placeholder="Jon" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                </div>
+                 <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
+                  <label class="block mb-2 text-copy-primary" for="name">
+                    Last Name
+                  </label>
+                  <input type="text" name="lastname" id="lastname" v-model="senderLastName" placeholder="Snow" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
                 </div>
                 <div class="w-full px-4 md:w-1/2">
                   <label class="block text-copy-primary mb-2" for="email">
                     Email Address
                   </label>
                   <input type="email" name="email" id="email" v-model="senderEmail" placeholder="email@example.com"  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                </div>
+                <div class="w-full px-4 md:w-1/2">
+                  <label class="block text-copy-primary mb-2" for="email">
+                    Phone Number
+                  </label>
+                  <input type="phone" name="phonenumber" id="phonenumber" v-model="senderPhoneNumber" placeholder="+1 8888-8888"  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
                 </div>
               </div>
               <div class="w-full mb-12">

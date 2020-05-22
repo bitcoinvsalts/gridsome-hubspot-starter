@@ -9,8 +9,10 @@ exports.handler = async function(event, context, callback) {
   console.log(event.body)
   const contactObj = {
     "properties": [
-      { "property": "firstname","value": 'yooo' },
-      { "property": "lastname", "value": 'bingy' }
+      { "property": "firstname","value": event.body.senderFirstName },
+      { "property": "lastname", "value": event.body.senderLastName },
+      { "property": "email", "value": event.body.senderEmail },
+      { "property": "phone", "value": event.body.senderPhoneNumber },
     ]
   }
   try {
