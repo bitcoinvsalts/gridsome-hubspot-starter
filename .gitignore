@@ -7,4 +7,3 @@ dist
 .env
 .env.*
 static/rss.xml
-*.lock
