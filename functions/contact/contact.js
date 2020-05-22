@@ -5,7 +5,7 @@ exports.handler = async function(event, context, callback) {
   const hubspot = new Hubspot({
     apiKey: 'e2e8ea2d-699a-4163-8d1d-6decf384533c',
   })
-  console.log("start hubspot contact...")
+  //console.log("start hubspot contact...")
   console.log(event.body)
   const contactObj = {
     "properties": [
