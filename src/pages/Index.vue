@@ -94,9 +94,9 @@
                 </div>
                 <div class="w-full px-4 md:w-1/2">
                   <label class="block text-copy-primary mb-2" for="email">
-                    Phone Number
+                    Company
                   </label>
-                  <input type="phone" name="phonenumber" id="phonenumber" v-model="senderPhoneNumber" placeholder="+1 8888-8888"  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                  <input type="company" name="company" id="company" v-model="senderCompany" placeholder=""  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
                 </div>
               </div>
               <div class="w-full mb-12">
@@ -128,7 +128,7 @@ export default {
     return {
       senderFirstName: '',
       senderLastName: '',
-      senderPhoneNumber: '',
+      senderCompany: '',
       senderEmail: '',
       message: '',
     }
@@ -141,7 +141,7 @@ export default {
             senderFirstName: this.senderFirstName,
             senderLastName: this.senderLastName,
             senderEmail: this.senderEmail,
-            senderPhoneNumber: this.senderPhoneNumber,
+            senderCompany: this.senderCompany,
             message: this.message,
           }
         )
@@ -152,7 +152,7 @@ export default {
         this.senderFirstName = '';
         this.senderLastName = '';
         this.senderEmail = '';
-        this.senderPhoneNumber = '';
+        this.senderCompany = '';
         this.message = '';
       }
     }
