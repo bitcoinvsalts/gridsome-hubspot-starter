@@ -41,12 +41,12 @@ exports.handler = async function(event, context, callback) {
       //console.log(data)
       return {
         statusCode: 200,
-        body
+        "ENGAGEMENT CREATED"
       }
     })
   })
   .catch( async (e) => {
-    console.log("ERROR NO CONTACT")
+    console.log("CONTACT DOES NOT EXIST")
     const contactObj = {
       "properties": [
         { "property": "firstname","value": senderFirstName },
@@ -90,11 +90,11 @@ exports.handler = async function(event, context, callback) {
         console.log("ENGAGEMENT CREATED")
         return {
           statusCode: 200,
-          body
+          "CONTACT + ENGAGEMENT CREATED"
         }
       })
       .catch( (err) => {
-        console.log("ERROR 4566")
+        console.log("ERROR 4566", err.message)
         return {
           statusCode: err.code,
           body: JSON.stringify({ msg: err.message })
@@ -102,7 +102,7 @@ exports.handler = async function(event, context, callback) {
       })
     })
     .catch( (err) => {
-      console.log("ERROR 233")
+      console.log("ERROR 233", err.message)
       return {
         statusCode: err.code,
         body: JSON.stringify({ msg: err.message })
