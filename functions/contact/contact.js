@@ -40,7 +40,7 @@ exports.handler = async function(event, context, callback) {
       console.log("ENGAGEMENT CREATED")
       const dealProperties = [
         {
-          value: 'MadKudu',
+          value: senderFirstName + ' ' + senderLastName,
           name: 'dealname',
         },
         {
@@ -109,7 +109,7 @@ exports.handler = async function(event, context, callback) {
         console.log("ENGAGEMENT CREATED")
         const dealProperties = [
           {
-            value: 'MadKudu',
+            value: senderFirstName + ' ' + senderLastName,
             name: 'dealname',
           },
           {
