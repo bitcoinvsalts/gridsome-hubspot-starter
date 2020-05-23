@@ -126,7 +126,9 @@ export default {
   },
   data() {
     return {
-      senderName: '',
+      senderFirstName: '',
+      senderLastName: '',
+      senderPhoneNumber: '',
       senderEmail: '',
       message: '',
     }
@@ -136,8 +138,10 @@ export default {
       try {
         await axios.post('/api/contact',
           {
-            senderName: this.senderName,
+            senderFirstName: this.senderFirstName,
+            senderLastName: this.senderLastName,
             senderEmail: this.senderEmail,
+            senderPhoneNumber: this.senderPhoneNumber,
             message: this.message,
           }
         )
@@ -145,8 +149,10 @@ export default {
         console.error(err)
       } finally {
         console.log("contact success")
-        this.senderName = '';
+        this.senderFirstName = '';
+        this.senderLastName = '';
         this.senderEmail = '';
+        this.senderPhoneNumber = '';
         this.message = '';
       }
     }
