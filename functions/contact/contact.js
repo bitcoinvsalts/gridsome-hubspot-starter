@@ -59,7 +59,7 @@ exports.handler = async function(event, context, callback) {
   }
   await hubspot.engagements.create(payload)
   .then(data => { 
-    console.log(data)
+    //console.log(data)
     return {
       statusCode: 200,
       body
