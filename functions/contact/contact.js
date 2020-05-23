@@ -36,7 +36,7 @@ exports.handler = async function(event, context, callback) {
       }
     }
     await hubspot.engagements.create(payload)
-    .then(data => { 
+    .then( async data => { 
       console.log("ENGAGEMENT CREATED")
       const dealProperties = [
         {
@@ -56,7 +56,7 @@ exports.handler = async function(event, context, callback) {
           name: 'dealtype',
         },
       ]
-      await hubspot.deals.create(associations: { associatedVids: [ data.vid ] }, properties: dealProperties)
+      await hubspot.deals.create({associations: { associatedVids: [ data.vid ] }, properties: dealProperties})
       .then(data => { 
         console.log("ENGAGEMENT + DEAL CREATED")
         return {
@@ -105,7 +105,7 @@ exports.handler = async function(event, context, callback) {
         }
       }
       await hubspot.engagements.create(payload)
-      .then(data => { 
+      .then( async data => { 
         console.log("ENGAGEMENT CREATED")
         const dealProperties = [
           {
@@ -125,7 +125,7 @@ exports.handler = async function(event, context, callback) {
             name: 'dealtype',
           },
         ]
-        await hubspot.deals.create(associations: { associatedVids: [ data.vid ] }, properties: dealProperties)
+        await hubspot.deals.create({associations: { associatedVids: [ data.vid ] }, properties: dealProperties})
         .then(data => { 
           console.log("DEAL CREATED")
           return {
