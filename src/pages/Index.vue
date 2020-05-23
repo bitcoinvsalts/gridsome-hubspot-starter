@@ -78,7 +78,7 @@
                   <label class="block mb-2 text-copy-primary" for="firstname">
                     First Name
                   </label>
-                  <input type="text" name="firstname" id="firstname" v-model="sendeFirstName" placeholder="Jon" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                  <input type="text" name="firstname" id="firstname" v-model="senderFirstName" placeholder="Jon" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
                 </div>
                  <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
                   <label class="block mb-2 text-copy-primary" for="name">
