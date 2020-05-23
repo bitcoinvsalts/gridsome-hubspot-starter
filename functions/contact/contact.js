@@ -27,15 +27,6 @@ exports.handler = async function(event, context, callback) {
     }
     */
   })
-  .catch(err) {
-    console.log("CONTACT ERROR", err.message)
-    /*
-    return {
-      statusCode: err.code,
-      body: JSON.stringify({ msg: err.message })
-    }
-    */
-  }
   ///
   const payload = { 
     'engagement': { 
