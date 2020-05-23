@@ -9,69 +9,98 @@ exports.handler = async function(event, context, callback) {
   console.log(event.body)
   ///
   await hubspot.contacts.getByEmail(senderEmail)
-  .then(data => { 
-    console.log(data)
-    /*
-    return {
-      statusCode: 200,
-      body
+  .then( async data => { 
+    console.log(data.vid)
+    const payload = { 
+      'engagement': { 
+        'active': true, 
+        'ownerId': 1, 
+        'type': 'EMAIL', 
+        'timestamp': Date.now() 
+      }, 
+      'associations': { 
+        'contactIds': [data.vid], 
+        'companyIds': [ ], 
+        'dealIds': [ ], 
+        'ownerIds': [ ] 
+      },
+      'metadata': {
+        "from": 
+          {
+            "email": senderEmail,
+            "firstName": senderFirstName,
+            "lastName": senderLastName,
+          },
+        "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
+        "subject": "New Form Submission",
+        "text": message
+      }
     }
-    */
+    await hubspot.engagements.create(payload)
+    .then(data => { 
+      //console.log(data)
+      return {
+        statusCode: 200,
+        body
+      }
+    })
   })
-  ///
-  /*
-  const contactObj = {
-    "properties": [
-      { "property": "firstname","value": senderFirstName },
-      { "property": "lastname", "value": senderLastName },
-      { "property": "email", "value": senderEmail },
-      { "property": "company", "value": senderCompany },
-    ]
-  }
-  console.log(contactObj)
-  await hubspot.contacts.create(contactObj)
-  .then(data => { 
-    console.log(data)
-    console.log("CONTACT DONE.")
-  })
-  .catch( (e) => {
-    console.log("ERROR 7868")
-    console.log(e)
-  })
-  ///
-  const payload = { 
-    'engagement': { 
-      'active': true, 
-      'ownerId': 1, 
-      'type': 'EMAIL', 
-      'timestamp': Date.now() 
-    }, 
-    'associations': { 
-      'contactIds': [901], 
-      'companyIds': [ ], 
-      'dealIds': [ ], 
-      'ownerIds': [ ] 
-    },
-    'metadata': {
-      "from": 
-        {
-          "email": senderEmail,
-          "firstName": senderFirstName,
-          "lastName": senderLastName,
+  .catch( async (e) => {
+    console.log("ERROR NO CONTACT")
+    const contactObj = {
+      "properties": [
+        { "property": "firstname","value": senderFirstName },
+        { "property": "lastname", "value": senderLastName },
+        { "property": "email", "value": senderEmail },
+        { "property": "company", "value": senderCompany },
+      ]
+    }
+    console.log(contactObj)
+    await hubspot.contacts.create(contactObj)
+    .then( async data => { 
+      console.log(data.vid)
+      console.log("CONTACT DONE.")
+      const payload = { 
+        'engagement': { 
+          'active': true, 
+          'ownerId': 1, 
+          'type': 'EMAIL', 
+          'timestamp': Date.now() 
+        }, 
+        'associations': { 
+          'contactIds': [data.vid], 
+          'companyIds': [ ], 
+          'dealIds': [ ], 
+          'ownerIds': [ ] 
         },
-      "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
-      "subject": "This is the subject of the email",
-      "text": "This is the body of the email\n\n-Me"
-    }
-  }
-  await hubspot.engagements.create(payload)
-  .then(data => { 
-    //console.log(data)
-    return {
-      statusCode: 200,
-      body
-    }
+        'metadata': {
+          "from": 
+            {
+              "email": senderEmail,
+              "firstName": senderFirstName,
+              "lastName": senderLastName,
+            },
+          "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
+          "subject": "New Form Submission",
+          "text": message
+        }
+      }
+      await hubspot.engagements.create(payload)
+      .then(data => { 
+        //console.log(data)
+        return {
+          statusCode: 200,
+          body
+        }
+      })
+    })
+    .catch( (err) => {
+      console.log("ERROR 233")
+      return {
+        statusCode: err.code,
+        body: JSON.stringify({ msg: err.message })
+      }
+    })
   })
-  */
   ///
 }
