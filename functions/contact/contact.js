@@ -6,11 +6,10 @@ exports.handler = async function(event, context, callback) {
     apiKey: 'e2e8ea2d-699a-4163-8d1d-6decf384533c',
   })
   console.log("start hubspot contact...")
-  console.log(event.body)
   ///
   await hubspot.contacts.getByEmail(senderEmail)
   .then( async data => { 
-    console.log(data.vid)
+    console.log('CONTACT EXISTS')
     const payload = { 
       'engagement': { 
         'active': true, 
@@ -38,11 +37,33 @@ exports.handler = async function(event, context, callback) {
     }
     await hubspot.engagements.create(payload)
     .then(data => { 
-      //console.log(data)
-      return {
-        statusCode: 200,
-        body: "ENGAGEMENT CREATED",
-      }
+      console.log("ENGAGEMENT CREATED")
+      const dealProperties = [
+        {
+          value: 'MadKudu',
+          name: 'dealname',
+        },
+        {
+          value: 'appointmentscheduled',
+          name: 'dealstage',
+        },
+        {
+          value: 'default',
+          name: 'pipeline',
+        },
+        {
+          value: 'newbusiness',
+          name: 'dealtype',
+        },
+      ]
+      await hubspot.deals.create(associations: { associatedVids: [ data.vid ] }, properties: dealProperties)
+      .then(data => { 
+        console.log("ENGAGEMENT + DEAL CREATED")
+        return {
+          statusCode: 200,
+          body: "ENGAGEMENT + DEAL CREATED",
+        }
+      })
     })
   })
   .catch( async (e) => {
@@ -55,11 +76,9 @@ exports.handler = async function(event, context, callback) {
         { "property": "company", "value": senderCompany },
       ]
     }
-    console.log(contactObj)
     await hubspot.contacts.create(contactObj)
     .then( async data => { 
-      console.log(data.vid)
-      console.log("CONTACT DONE.")
+      console.log("NEW CONTACT ADDED")
       const payload = { 
         'engagement': { 
           'active': true, 
@@ -88,13 +107,35 @@ exports.handler = async function(event, context, callback) {
       await hubspot.engagements.create(payload)
       .then(data => { 
         console.log("ENGAGEMENT CREATED")
-        return {
-          statusCode: 200,
-          body: "CONTACT + ENGAGEMENT CREATED"
-        }
+        const dealProperties = [
+          {
+            value: 'MadKudu',
+            name: 'dealname',
+          },
+          {
+            value: 'appointmentscheduled',
+            name: 'dealstage',
+          },
+          {
+            value: 'default',
+            name: 'pipeline',
+          },
+          {
+            value: 'newbusiness',
+            name: 'dealtype',
+          },
+        ]
+        await hubspot.deals.create(associations: { associatedVids: [ data.vid ] }, properties: dealProperties)
+        .then(data => { 
+          console.log("DEAL CREATED")
+          return {
+            statusCode: 200,
+            body: "CONTACT + ENGAGEMENT + DEAL CREATED",
+          }
+        })
       })
       .catch( (err) => {
-        console.log("ERROR 4566", err.message)
+        console.log("ERROR 456", err.message)
         return {
           statusCode: err.code,
           body: JSON.stringify({ msg: err.message })
