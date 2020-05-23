@@ -7,7 +7,6 @@ exports.handler = async function(event, context, callback) {
   })
   console.log("start hubspot contact...")
   console.log(event.body)
-  /*
   const contactObj = {
     "properties": [
       { "property": "firstname","value": senderFirstName },
@@ -17,49 +16,47 @@ exports.handler = async function(event, context, callback) {
     ]
   }
   console.log(contactObj)
-  try {
-    await hubspot.contacts.create(contactObj)
+  await hubspot.contacts.create(contactObj)
+  .then(data => { 
+    console.log(data)
     console.log("CONTACT DONE.")
     return {
       statusCode: 200,
-      body: "Message sent"
+      body
     }
-  } catch(err) {
+  })
+  .catch(err) {
     console.log("CONTACT ERROR", err.message)
     return {
       statusCode: err.code,
       body: JSON.stringify({ msg: err.message })
     }
   }
-  */
   ///
   const payload = { 
-    'engagement': 
-      { 
-        'active': true, 
-        'ownerId': 1, 
-        'type': 'EMAIL', 
-        'timestamp': Date.now() 
-      }, 
-    'associations': 
-      { 
-        'contactIds': [901], 
-        'companyIds': [ ], 
-        'dealIds': [ ], 
-        'ownerIds': [ ] 
-      }, 
-    'metadata': 
-      {
-        "from": 
-          {
-            "email": senderEmail,
-            "firstName": senderFirstName,
-            "lastName": senderLastName,
-          },
-        "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
-        "subject": "This is the subject of the email",
-        "text": "This is the body of the email\n\n-Me"
-      }
+    'engagement': { 
+      'active': true, 
+      'ownerId': 1, 
+      'type': 'EMAIL', 
+      'timestamp': Date.now() 
+    }, 
+    'associations': { 
+      'contactIds': [901], 
+      'companyIds': [ ], 
+      'dealIds': [ ], 
+      'ownerIds': [ ] 
+    },
+    'metadata': {
+      "from": 
+        {
+          "email": senderEmail,
+          "firstName": senderFirstName,
+          "lastName": senderLastName,
+        },
+      "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
+      "subject": "This is the subject of the email",
+      "text": "This is the body of the email\n\n-Me"
+    }
   }
   await hubspot.engagements.create(payload).then(data => { 
     console.log(data)
