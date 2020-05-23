@@ -41,7 +41,7 @@ exports.handler = async function(event, context, callback) {
       //console.log(data)
       return {
         statusCode: 200,
-        "ENGAGEMENT CREATED"
+        body: "ENGAGEMENT CREATED",
       }
     })
   })
@@ -90,7 +90,7 @@ exports.handler = async function(event, context, callback) {
         console.log("ENGAGEMENT CREATED")
         return {
           statusCode: 200,
-          "CONTACT + ENGAGEMENT CREATED"
+          body: "CONTACT + ENGAGEMENT CREATED"
         }
       })
       .catch( (err) => {
