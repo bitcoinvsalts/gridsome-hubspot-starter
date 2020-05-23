@@ -11,10 +11,10 @@ A Gridsome starter using Hubspot to create new contacts and deals to your Hubspo
 ## Features
 
 - When the contact form is submitted from the Gridsome, it does the following:
- + check if contact email exist in your Hubspot CRM
- + if contact does not exist, it will create a new contact.
- + create new engagement for this contact.
- + create a new deal for this contact.
+ - check if contact email exist in your Hubspot CRM
+ - if contact does not exist, it will create a new contact.
+ - create new engagement for this contact.
+ - create a new deal for this contact.
 
 ## Requirements
 
