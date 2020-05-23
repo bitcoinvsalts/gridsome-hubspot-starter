@@ -7,6 +7,7 @@ exports.handler = async function(event, context, callback) {
   })
   console.log("start hubspot contact...")
   console.log(event.body)
+  /*
   const contactObj = {
     "properties": [
       { "property": "firstname","value": senderFirstName },
@@ -18,16 +19,22 @@ exports.handler = async function(event, context, callback) {
   console.log(contactObj)
   try {
     await hubspot.contacts.create(contactObj)
-    console.log("DONE.")
+    console.log("CONTACT DONE.")
     return {
       statusCode: 200,
       body: "Message sent"
     }
   } catch(err) {
-    console.log("ERROR", err.message)
+    console.log("CONTACT ERROR", err.message)
     return {
       statusCode: err.code,
       body: JSON.stringify({ msg: err.message })
     }
   }
+  */
+  ///
+  const payload = { 'engagement': { 'active': true, 'ownerId': 1, 'type': 'NOTE', 'timestamp': Date.now() }, 'associations': { 'contactIds': [2], 'companyIds': [ ], 'dealIds': [ ], 'ownerIds': [ ] }, 'metadata': { 'body': 'note body' } }
+  hubspot.engagements.create(payload).then(data => { 
+    console.log(data)
+  })
 }
