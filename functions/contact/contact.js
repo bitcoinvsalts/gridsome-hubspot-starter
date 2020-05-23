@@ -20,17 +20,21 @@ exports.handler = async function(event, context, callback) {
   .then(data => { 
     console.log(data)
     console.log("CONTACT DONE.")
+    /*
     return {
       statusCode: 200,
       body
     }
+    */
   })
   .catch(err) {
     console.log("CONTACT ERROR", err.message)
+    /*
     return {
       statusCode: err.code,
       body: JSON.stringify({ msg: err.message })
     }
+    */
   }
   ///
   const payload = { 
@@ -58,8 +62,13 @@ exports.handler = async function(event, context, callback) {
       "text": "This is the body of the email\n\n-Me"
     }
   }
-  await hubspot.engagements.create(payload).then(data => { 
+  await hubspot.engagements.create(payload)
+  .then(data => { 
     console.log(data)
+    return {
+      statusCode: 200,
+      body
+    }
   })
   ///
 }
