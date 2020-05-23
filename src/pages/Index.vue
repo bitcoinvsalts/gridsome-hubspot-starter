@@ -96,7 +96,7 @@
                   <label class="block text-copy-primary mb-2" for="email">
                     Company
                   </label>
-                  <input type="company" name="company" id="company" v-model="senderCompany" placeholder=""  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4" required>
+                  <input type="company" name="company" id="company" v-model="senderCompany" placeholder=""  class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-green-700 mb-2 p-4">
                 </div>
               </div>
               <div class="w-full mb-12">
@@ -106,7 +106,7 @@
                 <textarea id="message" rows="5" name="message" v-model="message" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-green-700 mb-2 px-4 py-4" placeholder="Enter your message here." required></textarea>
               </div>
               <div class="flex justify-end w-full">
-                <span v-if=submitted class="text-primary text-sm font-semibold tracking-wide py-3">Form information submitted.</span>
+                <span v-if=submitted class="text-primary text-sm font-semibold tracking-wide py-3">Thank you. Your information has been submitted.</span>
               </div>
               <div class="flex justify-end w-full">
                 <input type="submit" value="Submit" class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">
