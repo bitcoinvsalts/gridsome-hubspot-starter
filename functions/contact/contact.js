@@ -33,7 +33,34 @@ exports.handler = async function(event, context, callback) {
   }
   */
   ///
-  const payload = { 'engagement': { 'active': true, 'ownerId': 1, 'type': 'NOTE', 'timestamp': Date.now() }, 'associations': { 'contactIds': [901], 'companyIds': [ ], 'dealIds': [ ], 'ownerIds': [ ] }, 'metadata': { 'body': 'note body' } }
+  const payload = { 
+    'engagement': 
+      { 
+        'active': true, 
+        'ownerId': 1, 
+        'type': 'EMAIL', 
+        'timestamp': Date.now() 
+      }, 
+    'associations': 
+      { 
+        'contactIds': [901], 
+        'companyIds': [ ], 
+        'dealIds': [ ], 
+        'ownerIds': [ ] 
+      }, 
+    'metadata': 
+      {
+        "from": {
+          "email": senderEmail,
+          "firstName": senderFirstName,
+          "lastName": senderLastName,
+        },
+        "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
+        "subject": "This is the subject of the email",
+        "text": "This is the body of the email\n\n-Me"
+      }
+    }
+  }
   await hubspot.engagements.create(payload).then(data => { 
     console.log(data)
   })
