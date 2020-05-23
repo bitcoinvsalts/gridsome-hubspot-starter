@@ -72,7 +72,7 @@
           </div>
           <p class="mb-12">Contact Form connected to <a href="https://www.hubspot.com">Hubspot</a>.</p>
           <div class="text-lg sm:text-lg mb-16">
-            <form action="#" class="mb-12">
+            <form @submit.prevent="submit" class="mb-12">
               <div class="flex flex-wrap mb-6 -mx-4">
                 <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
                   <label class="block mb-2 text-copy-primary" for="firstname">
@@ -106,7 +106,10 @@
                 <textarea id="message" rows="5" name="message" v-model="message" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-green-700 mb-2 px-4 py-4" placeholder="Enter your message here." required></textarea>
               </div>
               <div class="flex justify-end w-full">
-                <input type="submit" value="Submit" @submit.prevent="submit" class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">
+                <span v-if=submitted class="text-primary text-sm font-semibold tracking-wide py-3">Form information submitted.</span>
+              </div>
+              <div class="flex justify-end w-full">
+                <input type="submit" value="Submit" class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">
               </div>
             </form>
           </div>
@@ -131,6 +134,7 @@ export default {
       senderCompany: '',
       senderEmail: '',
       message: '',
+      submitted: false,
     }
   },
   methods: {
@@ -149,11 +153,12 @@ export default {
         console.error(err)
       } finally {
         console.log("contact success")
-        this.senderFirstName = '';
-        this.senderLastName = '';
-        this.senderEmail = '';
-        this.senderCompany = '';
-        this.message = '';
+        this.senderFirstName = ''
+        this.senderLastName = ''
+        this.senderEmail = ''
+        this.senderCompany = ''
+        this.message = ''
+        this.submitted = true
       }
     }
   }
