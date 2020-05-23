@@ -87,10 +87,17 @@ exports.handler = async function(event, context, callback) {
       }
       await hubspot.engagements.create(payload)
       .then(data => { 
-        //console.log(data)
+        console.log("ENGAGEMENT CREATED")
         return {
           statusCode: 200,
           body
+        }
+      })
+      .catch( (err) => {
+        console.log("ERROR 4566")
+        return {
+          statusCode: err.code,
+          body: JSON.stringify({ msg: err.message })
         }
       })
     })
