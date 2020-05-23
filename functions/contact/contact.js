@@ -27,6 +27,10 @@ exports.handler = async function(event, context, callback) {
     }
     */
   })
+  .catch( (e) => {
+    console.log("ERROR 7868")
+    console.log(e)
+  })
   ///
   const payload = { 
     'engagement': { 
