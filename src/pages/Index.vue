@@ -11,7 +11,7 @@
       </div>
     </div> <!-- end hero -->
 
-    <div class="container-inner mx-auto">
+    <!--div class="container-inner mx-auto">
       <p class="text-lg sm:text-xl">This Gridsome Hubspot Hubpsot starter is a fork from this <a href="https://github.com/drehimself/gridsome-portfolio-starter">Gridsome Portfolio Starter</a>. Feel free to use it for your own site or projects! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, repellat. Dolores iure, quas perspiciatis rerum quaerat atque eum repellat autem.</p>
       <div class="flex justify-between items-center py-6">
         <div class="w-full sm:w-1/2 px-8 py-8 sm:py-0">
@@ -47,8 +47,8 @@
             <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
           </li>
         </ul>
-      </div> <!-- end projects -->
-    </div>
+      </div>
+    </div-->
 
     <div class="overflow-x-hidden border-gray-200 border-b">
       <div class="get-to-know-me container-inner mx-auto text-xl pb-16 relative">
@@ -60,17 +60,16 @@
           <div><g-image src="../../static/avatar.jpg" alt="avatar" class="w-32 h-32 rounded-full mb-8 lg:mb-0" /></div>
           <div class="flex-1 text-lg sm:text-xl ml-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum quae architecto minus molestias iusto ducimus fuga quo quia libero dignissimos, fugiat modi assumenda debitis laboriosam.</div>
         </div>
-      </div> <!-- end get-to-know me -->
+      </div>
     </div>
 
     <div class="overflow-x-hidden">
       <div class="contact-me bg-background-secondary pt-16">
         <div class="container-inner mx-auto text-xl pb-4 relative">
-          <h2 class="font-bold mb-6" id="contact">Contact me:</h2>
           <div class="absolute right-0 top-0" style="transform: translate(100%) rotate(180deg)">
             <svg width="170px" height="170px"><use xlink:href="#dots-triangle" /></svg>
           </div>
-          <p class="mb-12">Contact Form connected to <a href="https://www.hubspot.com">Hubspot</a>.</p>
+          <p class="mb-12" id="contact">Contact Form connected to <a href="https://www.hubspot.com">Hubspot</a>.</p>
           <div class="text-lg sm:text-lg mb-16">
             <form @submit.prevent="submit" class="mb-12">
               <div class="flex flex-wrap mb-6 -mx-4">
