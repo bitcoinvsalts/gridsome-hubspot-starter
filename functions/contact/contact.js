@@ -7,6 +7,19 @@ exports.handler = async function(event, context, callback) {
   })
   console.log("start hubspot contact...")
   console.log(event.body)
+  ///
+  await hubspot.contacts.getByEmail(senderEmail)
+  .then(data => { 
+    console.log(data)
+    /*
+    return {
+      statusCode: 200,
+      body
+    }
+    */
+  })
+  ///
+  /*
   const contactObj = {
     "properties": [
       { "property": "firstname","value": senderFirstName },
@@ -20,12 +33,6 @@ exports.handler = async function(event, context, callback) {
   .then(data => { 
     console.log(data)
     console.log("CONTACT DONE.")
-    /*
-    return {
-      statusCode: 200,
-      body
-    }
-    */
   })
   .catch( (e) => {
     console.log("ERROR 7868")
@@ -65,5 +72,6 @@ exports.handler = async function(event, context, callback) {
       body
     }
   })
+  */
   ///
 }
