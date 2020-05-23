@@ -106,7 +106,7 @@
                 <textarea id="message" rows="5" name="message" v-model="message" class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-green-700 mb-2 px-4 py-4" placeholder="Enter your message here." required></textarea>
               </div>
               <div class="flex justify-end w-full">
-                <input type="submit" value="Submit" @click.prevent="submit" class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">
+                <input type="submit" value="Submit" class="block bg-green-700 hover:bg-green-800 text-white text-sm font-semibold tracking-wide uppercase shadow rounded cursor-pointer px-6 py-3">
               </div>
             </form>
           </div>
