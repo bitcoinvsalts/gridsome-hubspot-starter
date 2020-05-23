@@ -15,6 +15,7 @@ exports.handler = async function(event, context, callback) {
       { "property": "phone", "value": event.body.senderPhoneNumber },
     ]
   }
+  console.log(contactObj)
   try {
     await hubspot.contacts.create(contactObj)
     console.log("DONE.")
