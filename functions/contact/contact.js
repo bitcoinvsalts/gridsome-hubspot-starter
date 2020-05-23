@@ -50,16 +50,16 @@ exports.handler = async function(event, context, callback) {
       }, 
     'metadata': 
       {
-        "from": {
-          "email": senderEmail,
-          "firstName": senderFirstName,
-          "lastName": senderLastName,
-        },
+        "from": 
+          {
+            "email": senderEmail,
+            "firstName": senderFirstName,
+            "lastName": senderLastName,
+          },
         "to": [{ "email": "JSapp.me <herve76@gmail.com>" }],
         "subject": "This is the subject of the email",
         "text": "This is the body of the email\n\n-Me"
       }
-    }
   }
   await hubspot.engagements.create(payload).then(data => { 
     console.log(data)
