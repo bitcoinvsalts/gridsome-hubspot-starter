@@ -2,6 +2,9 @@
 
 A Gridsome starter using Hubspot to create new contacts and deals to your Hubspot.
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jsappme/gridsome-hubspot-starter)
+
+
 ![screenshot](https://raw.githubusercontent.com/jsappme/gridsome-hubspot-starter/master/screenshot.png)
 
 ## Demo URL
@@ -19,7 +22,7 @@ A Gridsome starter using Hubspot to create new contacts and deals to your Hubspo
 ## Requirements
 
 - You need an account at [Hubspot](https://hubspot.com)
-- Add your own API key information in functions/contact/hubspot_config.json
+- Set the environement variable called HUBSPOT_API_KEY with your own API key.
 
 ## Installation
 

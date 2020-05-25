@@ -1,10 +1,9 @@
 const Hubspot = require('hubspot')
-const { apiKey } = require('./hubspot_config.json')
 
 exports.handler = async function(event, context, callback) {
   const { senderFirstName, senderLastName, senderEmail, senderCompany, message } = JSON.parse(event.body)
   const hubspot = new Hubspot({
-    apiKey: apiKey,
+    apiKey: process.env.HUBSPOT_API_KEY,
   })
   console.log("start hubspot contact...")
   ///
