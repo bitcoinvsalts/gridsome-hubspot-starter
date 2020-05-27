@@ -5,7 +5,7 @@ exports.handler = async function(event, context, callback) {
   const hubspot = new Hubspot({
     apiKey: process.env.HUBSPOT_API_KEY,
   })
-  console.log("start hubspot contact...")
+  console.log("start hubspot contact...", process.env.HUBSPOT_API_KEY)
   ///
   await hubspot.contacts.getByEmail(senderEmail)
   .then( async data => { 
