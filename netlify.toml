@@ -8,5 +8,3 @@
   status = 200
 [template.environment]
   HUBSPOT_API_KEY = "Your Hubspot API key"
-[[plugins]]
-  package = "@netlify/plugin-local-install-core"
