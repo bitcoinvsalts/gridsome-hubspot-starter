@@ -2,9 +2,14 @@
   publish = "dist"
   command = "gridsome build"
   functions = './functions/'
+
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+  
 [template.environment]
   HUBSPOT_API_KEY = "Your Hubspot API key"
