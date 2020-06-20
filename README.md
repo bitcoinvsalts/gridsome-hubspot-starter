@@ -35,3 +35,7 @@ A Gridsome starter using Hubspot to create new contacts and deals to your Hubspo
 ## Notes
 
  - This repo is a fork of this [personal portfolio website](https://github.com/drehimself/gridsome-portfolio-starter).
+
+Happy coding!
+
+[Gridsome Shopify = ❤️](https://gridsomify.com)
